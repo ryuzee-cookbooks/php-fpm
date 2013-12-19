@@ -20,6 +20,15 @@ template 'php.conf' do
   notifies :restart, "service[nginx]"
 end
 
+template 'phpinfo.php' do
+  path '/usr/share/nginx/html/phpinfo.php'
+  source 'phpinfo.php.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  only_if {node["php-fpm"]["nginx"]["release_test_script"]}
+end
+
 service "nginx" do
   service_name "nginx"
   restart_command "service nginx restart"
