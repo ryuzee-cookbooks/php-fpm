@@ -22,6 +22,17 @@ when "centos", "redhat", "amazon", "scientific", "fedora"
     end
   end
 
+  template 'www.conf' do
+    path '/etc/php-fpm.d/www.conf'
+    source 'www.conf.erb'
+    owner 'root'
+    group 'root'
+    mode '0644'
+   only_if { node["platform"] == "amazon" }
+  end
+
+
+
   service "php-fpm" do
     action [:enable, :start]
   end

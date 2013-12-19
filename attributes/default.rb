@@ -1,2 +1,2 @@
-default["php-fpm"]["user"] = "root" 
-default["php-fpm"]["group"] = "root" 
+default["php-fpm"]["user"] = "nobody" 
+default["php-fpm"]["group"] = "nobody" 
