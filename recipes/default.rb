@@ -13,7 +13,7 @@ case node["platform"]
 when "centos", "redhat", "amazon", "scientific", "fedora"
 
   if node["platform"] == "centos" 
-    include_recipe "yum::epel"
+    include_recipe "yum-epel"
   end
 
   %w{php-fpm php-pecl-apc}.each do |pkg|
