@@ -12,6 +12,8 @@
 case node["platform"]
 when "centos", "redhat", "amazon", "scientific", "fedora"
 
+  include_recipe "ca-certificates::default"
+
   if node["platform"] == "centos" 
     include_recipe "yum-epel"
   end
